@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('2img.png') no-repeat center center fixed; 
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    text-align: center;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes textPopUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes textFlicker {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.content {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    transition: transform 0.5s ease-in-out;
+    animation: fadeIn 2s ease-in-out;
+    position: relative;
+    max-width: 80%; /* Adjust as needed */
+}
+
+.content:hover {
+    transform: scale(1.1);
+}
+
+.content::before {
+    content: url('heart.gif');
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    animation: pulse 1.5s infinite;
+}
+
+.content::after {
+    content: url('sparkles.gif');
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0;
+    text-shadow: 2px 2px 4px #000000;
+    transition: color 0.5s ease-in-out;
+    animation: textPopUp 1s ease-in-out;
+}
+
+h1:hover {
+    color: #ff69b4; /* Hot pink */
+    animation: textFlicker 1.5s infinite;
+}
+
+p {
+    font-size: 1.5em;
+    margin: 10px 0;
+    text-shadow: 1px 1px 3px #000000;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    animation: textPopUp 2s ease-in-out;
+}
+
+p:hover {
+    opacity: 0.8;
+    transform: translateY(-10px);
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: relative; /* Added for button repositioning */
+}
+
+.btn {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    background: #ff69b4;
+    cursor: pointer;
+    transition: transform 0.5s ease, background-color 0.3s ease;
+    position: relative; /* Position relative to parent */
+}
+
+.btn.no {
+    background: #ff6347; /* Tomato */
+    margin-left: 20px; /* Initial position to the right of the Yes button */
+}
+
+.btn:hover {
+    opacity: 0.8;
+    background-color: #ff1493; /* Deep pink */
+}
+
+.btn.no:hover {
+    background-color: #e03c31; /* Darker tomato */
+}
